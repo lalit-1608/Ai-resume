@@ -49,15 +49,15 @@ async function registerUserController(req, res) {
     maxAge: 24 * 60 * 60 * 1000
 })
 
-    res.status(201).json({
-        message: "User registered successfully",
-        user: {
-            id: user._id,
-            username: user.username,
-            email: user.email
-        }
-    })
-
+  res.status(201).json({
+    message: "User registered successfully",
+    token,                    // ← YE NAYA LINE ADD HUA
+    user: {
+        id: user._id,
+        username: user.username,
+        email: user.email
+    }
+})
 }
 
 
@@ -98,16 +98,17 @@ async function loginUserController(req, res) {
     sameSite: "none",    // IMPORTANT for cross-site cookies
     maxAge: 24 * 60 * 60 * 1000
 })
+}
     
     res.status(200).json({
-        message: "User loggedIn successfully.",
-        user: {
-            id: user._id,
-            username: user.username,
-            email: user.email
-        }
-    })
-}
+    message: "User loggedIn successfully.",
+    token,                    // ← YE NAYA LINE ADD HUA
+    user: {
+        id: user._id,
+        username: user.username,
+        email: user.email
+    }
+})
 
 
 /**
