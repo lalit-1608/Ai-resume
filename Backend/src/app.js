@@ -10,7 +10,10 @@ const app = express()
 app.use(express.json())
 app.use(cookieParser())
 app.use(cors({
-    origin: "https://ai-resume-ec71agm8q-lalits-projects-65ce08ad.vercel.app",
+    origin: [
+        "https://ai-resume-six-sepia.vercel.app",
+        "http://localhost:5173"
+    ],
     credentials: true
 }))
 
